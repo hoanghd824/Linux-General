@@ -1,0 +1,90 @@
+install MATE desktop
+
+apt install ubuntu-mate-desktop
+apt install mate-desktop-environment-extras
+
+turn off keyboard backlight: /sys/class/leds/dell::kbd_backlight/brightness
+
+Parrot theme 
+apt install git
+git clone https://github.com/ParrotSec/parrot-themes
+cd parrot-themes
+cp -r icons/ themes/  /usr/share 
+
+
+add shorcut lock screen
+bash -c "mate-screensaver-command -l; sleep 4; xset dpms force off"
+
+install zshell (zsh)
+apt install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+(for each user)
+chsh -s $(which zsh)
+Cài plugin auto-suggestions:
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+nano ~/.zshrc
+ZSH_THEME="bira"
+plugins = ( dirhistory sudo zsh-autosuggestions)
+
+https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/dirhistory
+https://github.com/zsh-users/zsh-autosuggestions
+https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo
+
+
+install tilix 
+apt install tilix -y
+
+rainbow terminal
+apt install lolcat -y
+
+thay đổi terminal mặc định
+sudo update-alternatives --config x-terminal-emulator
+
+Cài office
+apt-get install ttf-mscorefonts-installer -y
+only office
+https://helpcenter.onlyoffice.com/installation/desktop-sys-reqs-linux.aspx
+
+wps
+
+mount hdd 
+sudo blkid (lay thong tin UUID cac phan vung o dia)
+sudo nano /etc/fstab
+
+cài đặt application trên ổ cứng rời
+https://askubuntu.com/questions/313592/how-to-install-applications-to-a-separate-hdd
+
+tạo swap trên hdd (fileswap)
+dd if=/dev/zero of=/media/data/swapfile bs=1024 count=8M (~ 8GB)
+mkswap /media/data/swapfile
+chmod 600 /media/data/swapfile
+swapon /media/data/swapfile
+nano /etc/fstab
+thêm dòng /media/data/swapfile swap swap defaults 0 0
+
+
+Đây là file fstab hiện tại đang sử dụng, bao gồm 1 ổ cứng ssd chứa hệ điều hành, 1 ổ cứng hdd thứ 2 chia thành 2 phân vùng (sdb1:data, sdb2:apps)
+
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda2 during installation
+UUID=f09bf819-d045-43a2-8abe-a34f025eb88c /    ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/sda1 during installation
+UUID=7E4D-0FFD  /boot/efi       vfat    umask=0077      0       1
+
+#auto mount HDD
+/dev/sdb1 /media/data ext4 errors=remount-ro 0 0
+/dev/sdb2 /media/apps ext4 errors=remount-ro 0 0
+
+#swap on HDD 
+/media/data/swapfile swap swap defaults 0 0
+
+java
+
+sudo apt install default-jre
+sudo apt install default-jdk
+sudo apt install openjdk-<ver>-jdk
+
+$PATH
+nano /etc/environment

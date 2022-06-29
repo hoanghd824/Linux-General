@@ -1,0 +1,6 @@
+debian: ifconfig <interface> <IP> netmask <netmask>
+centOS: nano /etc/sysconfig/network-scripts/ifcfg-ens33
+
+route add default gw <GW_IP> <interface>
+ip route add 10.0.0.0/24 via 192.168.11.254 dev vmnet8
+dpkg-reconfigure network-manager

@@ -1,0 +1,4 @@
+
+tao tk admin voi quyen cao nhat thay cho tai khoan root mysql
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'the_password_you_wish_here';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
