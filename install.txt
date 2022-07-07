@@ -88,3 +88,16 @@ sudo apt install openjdk-<ver>-jdk
 
 $PATH
 nano /etc/environment
+
+apt install gnome-tweaks
+
+dash-to-dock running dots
+apt install dconf-editor
+https://ubuntuhandbook.org/index.php/2022/02/how-to-customize-the-orange-dots-in-the-dock-of-ubuntu-20-04-22-04/
+
+change bash color
+
+https://linoxide.com/change-linux-shell-prompt-with-different-colors/
+
+vlgroup= multi physic volume
+logic volume = vlgroup/n
