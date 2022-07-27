@@ -104,5 +104,8 @@ change bash color
 
 https://linoxide.com/change-linux-shell-prompt-with-different-colors/
 
+advances screenshot tool
+sudo apt install flameshot
+
 vlgroup= multi physic volume
 logic volume = vlgroup/n
